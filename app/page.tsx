@@ -1,101 +1,118 @@
+import HeroThreeBox from "@/components/HeroThree/page";
+import HeroTwoBox from "@/components/HeroTwo/page";
+import { link } from "fs";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      {/* Hero section */}
+      <section className="flex justify-center w-full bg-slate-50">
+        <div className="w-10/12 my-20">
+          <div className=" flex items-center lg:flex-row lg:justify-center flex-col lg:gap-0 gap-14">
+            <div className="lg:w-1/2 w-full text-center lg:text-start">
+              <h1 className="text-6xl font-semibold text-myblue">
+                Next generation digital banking
+              </h1>
+              <p className="text-lg text-gray-500 my-8">
+                Take your fiancial life online. Your Easybank account <br />
+                will be a one-stop-shop for spending, saving, <br />
+                budgeting, investing, and much more.
+              </p>
+              <Link href="/">
+                <button className="py-3 px-8 bg-green-400 hover:ring hover:ring-mygreen hover:text-myblue rounded-full text-white  text-sm font-semibold">
+                  Request Invite
+                </button>
+              </Link>
+            </div>
+            <div className="lg:w-1/2 w-full">
+              <div className="bg-[url('/heroimg2.jpg')] bg-cover bg-center w-full h-[600px] rounded-lg"></div>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+
+      {/* Hero Two */}
+      <section className="bg-slate-100 flex justify-center w-full">
+        <div className="w-10/12 my-20">
+          <div>
+            <h1 className="text-4xl text-myblue">Why choose Easybank</h1>
+            <div className="text-gray-400 my-8">
+              <p>
+                We leverage Open Banking to turn your bank account into your
+                financial hub.
+              </p>
+              <p>Control your finances like never before.</p>
+            </div>
+          </div>
+          <div className="grid grid-cols-4 space-x-6">
+            <HeroTwoBox
+              img={"/icon-api.svg"}
+              txt1={"Online banking"}
+              txt2={
+                "Our modern web and mobile applications allow you to keep track of your fitness wherever you aree in the world."
+              }
+            />
+
+            <HeroTwoBox
+              img={"/icon-api.svg"}
+              txt1={"Simple Budgeting"}
+              txt2={`See exactly where your money goes each month. Receive notifications when you're close hitting your limits`}
+            />
+
+            <HeroTwoBox
+              img={"/icon-api.svg"}
+              txt1={"Fast Onboarding"}
+              txt2={`We don't do branches. Open your account in minutes online and start talking control of your finances right away.`}
+            />
+
+            <HeroTwoBox
+              img={"/icon-api.svg"}
+              txt1={"Open API"}
+              txt2={
+                "Manage your savings, investments, pension, and much more from one account. Tracking your money has never been easier."
+              }
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Three */}
+      <section className="bg-slate-50 flex justify-center w-full">
+        <div className="w-10/12 my-20">
+              <h1 className="text-4xl text-myblue mb-12">Latest Article</h1>
+          <div className="grid grid-cols-4 gap-7">
+            <HeroThreeBox
+              img={"/image-currency.jpg"}
+              author={"By Claris Robinson"}
+              h2={"Receive money in any currency with no fees"}
+              para={`The World is getting smaller and we're becoming more mobile. So why should you be forced to only receive money in a single...`}
+            />
+
+            <HeroThreeBox
+              img={"/image-restaurant.jpg"}
+              author={"By Wilson Hutton"}
+              h2={"Receive money in any currency with no fees"}
+              para={`The World is getting smaller and we're becoming more mobile. So why should you be forced to only receive money in a single...`}
+            />
+
+            <HeroThreeBox
+              img={"/image-plane.jpg"}
+              author={"By Claris Robinson"}
+              h2={"Receive money in any currency with no fees"}
+              para={`The World is getting smaller and we're becoming more mobile. So why should you be forced to only receive money in a single...`}
+            />
+
+            <HeroThreeBox
+              img={"/image-confetti.jpg"}
+              author={"By Claris Robinson"}
+              h2={"Receive money in any currency with no fees"}
+              para={`The World is getting smaller and we're becoming more mobile. So why should you be forced to only receive money in a single...`}
+            />
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
+import Image from "next/image";
+import Header from "@/components/Header/index";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,8 +30,114 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      >  <Header />
         {children}
+        {/* Footer */}
+        <section className="bg-myblue flex justify-center">
+          <div className="w-10/12 py-12">
+            <div className="flex lg:justify-between flex-col lg:flex-row items-center">
+              <div className="flex lg:flex-row flex-col lg:space-x-20">
+                <div className="flex flex-col items-center lg:justify-center lg:items-start space-y-10">
+                  <div>
+                    <Image
+                      src="/logo.svg"
+                      alt="Logo"
+                      width={200}
+                      height={100}
+                    />
+                  </div>
+                  <div className="flex lg:justify-start justify-center gap-4 ">
+                    <Link href="/">
+                    <Image
+                      src="/icon-facebook.svg"
+                      alt="facebook"
+                      width={20}
+                      height={20}
+                    />
+                    </Link>
+                    <Link href="/">
+                    <Image
+                      src="/icon-youtube.svg"
+                      alt="facebook"
+                      width={20}
+                      height={20}
+                    />
+                    </Link>
+                    <Link href="/">
+                    <Image
+                      src="/icon-twitter.svg"
+                      alt="facebook"
+                      width={20}
+                      height={20}
+                    />
+                    </Link>
+                    <Link href="/">
+                    <Image
+                      src="/icon-pinterest.svg"
+                      alt="facebook"
+                      width={20}
+                      height={20}
+                    />
+                    </Link>
+                    <Link href="/">
+                    <Image
+                      src="/icon-instagram.svg"
+                      alt="facebook"
+                      width={20}
+                      height={20}
+                    />
+                    </Link>
+                  </div>
+                </div>
+                <div className="flex lg:flex-row flex-col lg:gap-20 gap-2 my-6">
+                  <div className="flex flex-col items-center lg:items-start gap-2">
+                    <Link href="/about">
+                      <span className="text-gray-300 hover:text-white">
+                        About Us
+                      </span>
+                    </Link>
+                    <Link href="/contact">
+                      <span className="text-gray-300 hover:text-white">
+                        Contact
+                      </span>
+                    </Link>
+                    <Link href="/blog">
+                      <span className="text-gray-300 hover:text-white">
+                        Blog
+                      </span>
+                    </Link>
+                  </div>
+                  <div className="flex flex-col items-center lg:items-start gap-2">
+                    <Link href="/careers">
+                      <span className="text-gray-300 hover:text-white">
+                        Careers
+                      </span>
+                    </Link>
+                    <Link href="#">
+                      <span className="text-gray-300 hover:text-white">
+                        Support
+                      </span>
+                    </Link>
+                    <Link href="#">
+                      <span className="text-gray-300 hover:text-white">
+                        Privacy Policy
+                      </span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col lg:items-end items-center lg:space-y-6 space-y-4">
+                <Link href="#">
+                  <button className="py-3 px-8 bg-green-400 rounded-full text-slate-50 hover:text-textblue text-sm font-semibold">
+                    Request Invite
+                  </button>
+                </Link>
+                <p className="text-gray-500">©Easybank. All Rights Reserved</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </body>
     </html>
   );
